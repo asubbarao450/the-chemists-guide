@@ -86,6 +86,7 @@ router.post('/', (req, res) => {
     console.log('Error in POST', err);
     res.sendStatus(500);
   });
+  
 });
 
 
@@ -112,4 +113,25 @@ router.put('/', (req, res) => {
 
 });
 
+
+router.delete('/:id', (req, res) => {
+
+  //req params id returns the id of the element we want deleted
+  let deleteloc = req.params.id
+  const queryText = `
+  DELETE FROM "compounds"
+   WHERE id=$1
+  `;
+
+  pool.query(queryText, [deleteloc])
+  .then(()=> {res.sendStatus(200);})
+  .catch((err)=> {
+
+    console.log('Error in Delete Route');
+
+    res.sendStatus(500);
+  })
+
+
+})
 module.exports = router;
