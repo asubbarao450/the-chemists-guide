@@ -12,18 +12,18 @@ CREATE TABLE "user" (
 CREATE TABLE "element" (
     "id" SERIAL PRIMARY KEY,
     "name" VARCHAR (80) UNIQUE NOT NULL,
-    "description" VARCHAR (1000) NOT NULL,
+    "description" VARCHAR (1000),
     "atomic_number" integer,
-    "atomic_weight" double
+    "atomic_weight" float
 );
 
 
 CREATE TABLE "compound" (
     "id" SERIAL PRIMARY KEY,
     "name" VARCHAR (80) UNIQUE NOT NULL,
-    "description" VARCHAR (1000) NOT NULL,
+    "description" VARCHAR (1000),
     "date" timestamp,
     "user_id" integer,
-    "image" varchar (1200) UNIQUE NOT NULL,
-    "quantity" double
+    "image" varchar (1900) UNIQUE,
+    "quantity" float
 );
