@@ -9,7 +9,9 @@ function AboutPage() {
   return (
     <div className="container">
       <div>
-        <p>This about page is for anyone to read!</p>
+        <p>Welcome to the Chemist's Guide. The app is dedicated to recordkeeping and acting as a quick reference guide. The app allows access to a 
+          set of 20 commonly referenced elements to help guide lab chemists. The app also features different pages and allows users to create edit and delete compound information. 
+          The information a user can save about a compound is limited to name, description, date, image and quantity.</p>
       </div>
     </div>
   );
