@@ -4,13 +4,13 @@
   justify-content: space-between;
   align-items: center;
 
-  margin: 0 0 30px;
+  margin: 0 0 10px;
   background-color: #f57e07;
   overflow: hidden;
 }
 
 .nav a {
-  text-decoration: none;
+  text-decoration: whitesmoke;
 }
 
 .nav-title {

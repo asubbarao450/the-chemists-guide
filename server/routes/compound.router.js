@@ -69,6 +69,9 @@ router.post('/', (req, res) => {
     ($1, $2, 'NOW()', $3, $4, $5)
   `
 
+  //creates an object with the properties 
+  //from req.body.name which is recived from request made from client/store
+  
   const insertCompoundDetails = [
     req.body.name,
     req.body.description,

@@ -9,6 +9,9 @@ const passport = require('./strategies/user.strategy');
 
 // Route Includes
 const userRouter = require('./routes/user.router');
+//camel case decleration of compoundRouter which 
+//takes in path for compound router
+const compoundRouter = require('./routes/compound.router');
 
 // Express Middleware
 app.use(express.json());
@@ -24,6 +27,9 @@ app.use(passport.session());
 
 // Routes
 app.use('/api/user', userRouter);
+//added a route for compoundRouter which takes
+//in a route and a compoundRouter object
+app.use('/api/compounds', compoundRouter);
 
 // Listen Server & Port
 app.listen(PORT, () => {

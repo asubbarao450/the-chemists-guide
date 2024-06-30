@@ -11,7 +11,7 @@ function UserPage() {
   //it also requires a 
   return (
     <div className="container">
-      <h2>Welcome, {user.username}!</h2>
+      <h2>Enter New Compound Details</h2>
       <p>Your ID is: {user.id}</p>
 
       <LogOutButton className="btn" />
@@ -23,3 +23,4 @@ function UserPage() {
 
 // this allows us to use <App /> in index.js
 export default UserPage;
+
