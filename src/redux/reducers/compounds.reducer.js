@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 const compoundsReducer = (state = {}, action) => {
     switch (action.type) {
       case 'ADD_COMPOUND':
-        return action.payload;
+        return action.payload
       
       default:
         return state;

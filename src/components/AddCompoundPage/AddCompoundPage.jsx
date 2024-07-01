@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 function AddCompoundPage() {
   
@@ -10,31 +10,36 @@ function AddCompoundPage() {
   //react hooks to store the state of the name, description and mass variables 
   let [name, setName] = useState('');
   let [description, setDescription] = useState('');
-  let [mass, setMass] = useState(0);
+  let [quantity, setQuantity] = useState(0);
 
 
    let handleSubmit = () => {
     event.preventDefault
     //communicates with the reducer listening for 'ADD_COMPOUND' 
     //with the payload newItem object 
-    dispatch({type: 'ADD_COMPOUND', payload: newItem})
+    
 
 
     const newItem = {
         name: name,
         description: description,
-        mass: mass
+        quantity: quantity
 
     }
 
+   console.log("IMPORTANT", newItem.name)
+
+    //this dispatch sends the code over to store
+    dispatch({type: 'ADD_COMPOUND', payload: newItem})
+
     setName('')
     setDescription('')
-    setMass(0)
+    setQuantity(0)
   }
 
   
 
-  //make statement 
+  
   return (
     <div>
      {
@@ -59,12 +64,12 @@ function AddCompoundPage() {
       />
 
 
-      <label>Mass: </label>
+      <label>Quantity(amount): </label>
       <input
       type='text'
-      name='mass'
-      value={mass}
-      onChange = {(event) => setMass(event.target.value)}
+      name='quantity'
+      value={quantity}
+      onChange = {(event) => setQuantity(event.target.value)}
       />
       
       <button id='submitCompounds' onClick={handleSubmit}>Create Compound Entry</button>

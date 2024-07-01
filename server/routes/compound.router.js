@@ -61,22 +61,23 @@ router.get('/:id', (req, res) => {
  * Creates a compound entry with 5 catagories and a date timestamp
  */
 router.post('/', (req, res) => {
-
+  // ("name", "description", "date", "user_id", "image", "quantity")
   const insertCompoundQuery = `
   INSERT INTO "compounds"  
-      ("name", "description", "date", "user_id", "image", "quantity")
+  
+      ("name", "description", "date", "quantity")
       VALUES
-    ($1, $2, 'NOW()', $3, $4, $5)
+    ($1, $2, 'NOW()', $3);
   `
 
   //creates an object with the properties 
   //from req.body.name which is recived from request made from client/store
-  
+
   const insertCompoundDetails = [
     req.body.name,
     req.body.description,
-    req.body.user_id,
-    req.body.image,
+    //req.body.user_id,
+    //req.body.image,
     req.body.quantity
 
   ]

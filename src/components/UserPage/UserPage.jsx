@@ -11,7 +11,7 @@ function UserPage() {
   //it also requires a 
   return (
     <div className="container">
-      <h2>Enter New Compound Details</h2>
+      
       <p>Your ID is: {user.id}</p>
 
       <LogOutButton className="btn" />
