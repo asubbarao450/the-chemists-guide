@@ -12,6 +12,8 @@ function AddCompoundPage() {
   let [description, setDescription] = useState('');
   let [quantity, setQuantity] = useState(0);
 
+  //added decleration of dispatch
+  const dispatch = useDispatch();
 
    let handleSubmit = () => {
     event.preventDefault
@@ -72,7 +74,7 @@ function AddCompoundPage() {
       onChange = {(event) => setQuantity(event.target.value)}
       />
       
-      <button id='submitCompounds' onClick={handleSubmit}>Create Compound Entry</button>
+      <button id='submitCompounds'>Create Compound Entry</button>
       </form>
 
      }

@@ -7,8 +7,6 @@ function* fetchCompounds(action) {
     try {
         const compounds = yield axios.get(`/api/compounds`)
 
-        console.log(compounds)
-
         yield put({ type: 'FETCH_COMPOUNDS', payload: compounds.data })
     }
 
