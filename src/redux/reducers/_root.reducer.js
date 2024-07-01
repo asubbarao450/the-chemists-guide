@@ -14,7 +14,7 @@ import compoundsReducer from './compounds.reducer';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user,
-  compoundsReducer // will have an id and username if someone is logged in
+  compoundsReducer // added compoundsreducer
 });
 
 export default rootReducer;

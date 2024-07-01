@@ -31,7 +31,8 @@ function AddCompoundPage() {
 
    console.log("IMPORTANT", newItem.name)
 
-    //this dispatch sends the code over to store
+    //this dispatch sends the user input over to saga 
+    //function/store reducer
     dispatch({type: 'ADD_COMPOUND', payload: newItem})
 
     setName('')

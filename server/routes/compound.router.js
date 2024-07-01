@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
     
   `
 
-  pool.query(query)
+  pool.query(queryText)
     .then(result => {
       res.send(result.rows);
 
@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 
     .catch(err => {
 
-      console.log("error with the get compound route")
+      console.log("error with the get all compounds route")
 
       res.sendStatus(500)
     })
@@ -43,7 +43,7 @@ router.get('/:id', (req, res) => {
     
   `
 
-  pool.query(query, [newid])
+  pool.query(queryText, [newid])
     .then(result => {
       res.send(result.rows);
 

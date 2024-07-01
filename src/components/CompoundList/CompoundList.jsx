@@ -1,15 +1,24 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 function CompoundList() {
   
-  //access store which will store the 
-  //const compounds = useSelector((compounds) => store.compounds);
+  
+  const compounds = useSelector(store => store.compounds);
 
+  const dispatch = useDispatch();
+
+  //loads certain element on page startup
+  useEffect(() => {
+    dispatch({type: 'FETCH_COMPOUNDS'})
+  }, [])
+
+ 
   return (
     <div className="container">
-      <p>Info Page</p>
+      <p>Hello</p>
+      {compounds.map((compound) => <li>{compound}</li>)}
     </div>
   );
 

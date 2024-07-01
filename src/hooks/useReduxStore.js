@@ -15,5 +15,9 @@ const useReduxStore = () => {
   return useSelector(store => store.user)
  }
 
+ const useCompounds = () => {
+  return useSelector(store => store.compounds)
+ }
+
 
 export default useReduxStore;

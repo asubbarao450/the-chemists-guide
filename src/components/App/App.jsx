@@ -15,6 +15,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
 import AddCompoundPage from '../AddCompoundPage/AddCompoundPage';
+import CompoundList from '../CompoundList/CompoundList';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
@@ -49,6 +50,9 @@ function App() {
             <AddCompoundPage />
           </Route>
 
+
+          
+
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:5173/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
@@ -67,6 +71,14 @@ function App() {
             path="/info"
           >
             <InfoPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // shows compoundlist only when loggedin
+            exact
+            path="/compoundlist"
+          >
+            <CompoundList/>
           </ProtectedRoute>
 
           <Route

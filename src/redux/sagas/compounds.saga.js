@@ -2,12 +2,16 @@ import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 
-function* fetchCompounds(action) {
+function* fetchCompounds() {
 
     try {
-        const compounds = yield axios.get(`/api/compounds`)
+        //retrieves the compounds from the compounds table
+        const compounds = yield axios.get('/api/compounds')
 
-        yield put({ type: 'FETCH_COMPOUNDS', payload: compounds.data })
+        console.log(compounds)
+        console.log(compounds.data)
+        //sends over to the reducer to store the data 
+        yield put({ type: 'FETCH_COMPOUNDS', payload: compounds.data})
     }
 
     catch (error) {
@@ -18,13 +22,15 @@ function* fetchCompounds(action) {
 
 }
 
-
+//this addCompounds function will be called by the compoundsSaga function below
+//when dispatch with the type ADD_COMPOUNDS is called
 function* addCompounds(action) {
 
     try {
         yield axios.post('/api/compounds', action.payload)
 
-        //put will always communicate with store
+        //after compounds are added a call to fetch_compounds is made to update 
+        //the list of compounds
         yield put({type: 'FETCH_COMPOUNDS'})
     }
 
@@ -36,10 +42,12 @@ function* addCompounds(action) {
 
 function* compoundsSaga() {
 
-    //these two statements dispatch the specific fetchCompounds
+    
     
     yield takeLatest('FETCH_COMPOUNDS', fetchCompounds);
-    yield takeLatest('ADD_COMPOUNDS', addCompounds);
+
+    //this statement will couple ADD_COMPOUNDS with the addCompounds function
+    yield takeLatest('ADD_COMPOUND', addCompounds);
     
 }
 
