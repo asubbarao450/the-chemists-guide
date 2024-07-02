@@ -4,12 +4,12 @@ import {useDispatch, useSelector} from 'react-redux';
 
 function CompoundList() {
   
-  
-  const compounds = useSelector(store => store.compounds);
+  //this statement accesses the compoundsReducer and directs to the specific reducer inside
+  const compounds = useSelector(store => store.compoundsReducer.compoundsReducer);
 
   const dispatch = useDispatch();
 
-  //loads certain element on page startup
+  //dispatch contacts the root saga in compounds
   useEffect(() => {
     dispatch({type: 'FETCH_COMPOUNDS'})
   }, [])
@@ -18,7 +18,11 @@ function CompoundList() {
   return (
     <div className="container">
       <p>Hello</p>
-      {compounds.map((compound) => <li>{compound}</li>)}
+
+      {compounds.length > 0 &&
+      (<p>{compounds[3].name}</p> )
+     
+      }
     </div>
   );
 

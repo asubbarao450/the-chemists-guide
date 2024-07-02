@@ -8,15 +8,14 @@ function* fetchCompounds() {
         //retrieves the compounds from the compounds table
         const compounds = yield axios.get('/api/compounds')
 
-        console.log(compounds)
-        console.log(compounds.data)
-        //sends over to the reducer to store the data 
-        yield put({ type: 'FETCH_COMPOUNDS', payload: compounds.data})
+        
+        //put communicates with the reducer after retrieving a server call
+        yield put({ type: 'SET_COMPOUND', payload: compounds.data})
     }
 
     catch (error) {
 
-        console.log("error with fetchCompounds")
+        console.log("error with setCompounds")
     }
 
 
@@ -24,26 +23,25 @@ function* fetchCompounds() {
 
 //this addCompounds function will be called by the compoundsSaga function below
 //when dispatch with the type ADD_COMPOUNDS is called
-function* addCompounds(action) {
+ function* addCompounds(action) {
 
     try {
-        yield axios.post('/api/compounds', action.payload)
+         yield axios.post('/api/compounds', action.payload)
 
-        //after compounds are added a call to fetch_compounds is made to update 
-        //the list of compounds
-        yield put({type: 'FETCH_COMPOUNDS'})
-    }
+         //want to reupdate dom after a new element is added 
+         yield put({type: 'FETCH_COMPOUNDS'})
+     }
 
-    catch (error) {
+     catch (error) {
         console.log("error with addCompounds")
     }
 
-}
+ }
 
 function* compoundsSaga() {
 
     
-    
+    //communicates with the dispatch in compopnent file
     yield takeLatest('FETCH_COMPOUNDS', fetchCompounds);
 
     //this statement will couple ADD_COMPOUNDS with the addCompounds function
