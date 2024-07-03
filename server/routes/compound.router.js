@@ -106,9 +106,10 @@ router.post('/', (req, res) => {
  */
 router.put('/:id', (req, res) => {
 
-  let newid = req.params.id
-  const updateCompounds = req.body;
-
+  let newid  = req.params.id
+  //const {updateCompounds} = req.body
+  console.log("req.params.id is: ", newid);
+  console.log("req.body.name is: ", req.body.name)
 
   const queryText = `
   UPDATE "compounds"  
@@ -127,16 +128,17 @@ router.put('/:id', (req, res) => {
   //values that were stored in the server 
   //will be kept
   const newCompoundValues = [
-    updateCompounds.name,
-    updateCompounds.description,
+    String(req.body.name),
+    String(req.body.description),
     //updateCompounds.date,
     //updateCompounds.user_id,
     //updateCompounds.image,
-    updateCompounds.quantity,
+    Number(req.body.quantity),
     newid
 
   ]
 
+  console.log(newCompoundValues)
   pool.query(queryText, newCompoundValues)
     .then((result) => { res.sendStatus(200); })
     .catch((err) => {

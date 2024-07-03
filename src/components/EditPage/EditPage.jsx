@@ -23,20 +23,20 @@ function EditPage() {
 
   //will access the data passed from the history.push()
   //on previous page
-  let editid = location.state;
+  const editid = Number(location.state);
 
-  console.log(editid)
+  
 
   const compounds = useSelector(store => store.compounds.compoundsReducer);
 
-  //dispatch contacts the root saga in compounds
+  //dispatch contacts the root saga in compounds payload: editid
   useEffect(() => {
-    dispatch({ type: 'FETCH_COMPOUND', payload: editid })
+    dispatch({ type: 'FETCH_COMPOUND' })
   }, [])
 
 
   //function which handles the edit and 
-  const submitedit = (editid) => {
+  const submitedit = () => {
 
     let edittosend = {
       name: name,
@@ -46,7 +46,8 @@ function EditPage() {
 
     dispatch({
       type: 'EDIT_COMPOUND',
-      payload: [editid, edittosend]
+      payload: editid, 
+      payload1: edittosend
     })
 
     setName1('')

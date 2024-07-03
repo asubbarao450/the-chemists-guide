@@ -46,6 +46,7 @@ function* fetchCompound(action) {
  function* addCompounds(action) {
 
     try {
+        //syntax for add is 
          yield axios.post('/api/compounds', action.payload)
 
          //want to reupdate dom after a new element is added 
@@ -80,12 +81,12 @@ function* fetchCompound(action) {
 
  function* editCompound(action) {
 
-    let editid = action.payload[0]
+    let editid = action.payload
     console.log(editid)
-    let newCompound = action.payload[1]
+    let newCompound = action.payload1
 
     try {
-         yield axios.put(`/api/compounds/${editid}`)
+         yield axios.put(`/api/compounds/${editid}`, newCompound)
 
          //want to reupdate dom after a new element is added 
          yield put({type: 'FETCH_COMPOUNDS'})
