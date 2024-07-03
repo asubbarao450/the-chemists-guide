@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import errors from './errors.reducer';
 import user from './user.reducer';
-import compoundsReducer from './compounds.reducer';
+import compounds from './compounds.reducer';
 
 
 
@@ -14,7 +14,7 @@ import compoundsReducer from './compounds.reducer';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user,
-  compoundsReducer // added compoundsreducer
+  compounds // added compoundsreducer
 });
 
 export default rootReducer;

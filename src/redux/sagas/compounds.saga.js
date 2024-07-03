@@ -38,6 +38,24 @@ function* fetchCompounds() {
 
  }
 
+//calls the delete function after a 
+ function* deleteCompound(action) {
+
+    let deleteid = action.payload
+
+    try {
+         yield axios.delete(`/api/compounds/${deleteid}`)
+
+         //want to reupdate dom after a new element is added 
+         yield put({type: 'FETCH_COMPOUNDS'})
+     }
+
+     catch (error) {
+        console.log("error with delete Compounds")
+    }
+
+ }
+
 function* compoundsSaga() {
 
     
@@ -46,6 +64,8 @@ function* compoundsSaga() {
 
     //this statement will couple ADD_COMPOUNDS with the addCompounds function
     yield takeLatest('ADD_COMPOUND', addCompounds);
+
+    yield takeLatest('DELETE_COMPOUND', deleteCompound);
     
 }
 

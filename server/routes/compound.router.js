@@ -143,14 +143,14 @@ router.put('/:id', (req, res) => {
 
 });
 
-
+//delete route to delete a specific compound by id
 router.delete('/:id', (req, res) => {
 
   //req params id returns the id of the element we want deleted
   let deleteloc = req.params.id
   const queryText = `
   DELETE FROM "compounds"
-   WHERE id=$1
+   WHERE id=$1;
   `;
 
   pool.query(queryText, [deleteloc])

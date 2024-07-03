@@ -29,7 +29,7 @@ function AddCompoundPage() {
 
     }
 
-   console.log("IMPORTANT", newItem.name)
+   //console.log("IMPORTANT", newItem.name)
 
     //this dispatch sends the user input over to saga 
     //function/store reducer

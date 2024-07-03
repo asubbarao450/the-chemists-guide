@@ -59,6 +59,8 @@ function* logoutUser(action) {
 }
 
 function* loginSaga() {
+  //dispatch types
+  //calls generator function 
   yield takeLatest('LOGIN', loginUser);
   yield takeLatest('LOGOUT', logoutUser);
 }
