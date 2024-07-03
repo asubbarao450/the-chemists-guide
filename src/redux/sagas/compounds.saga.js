@@ -21,6 +21,26 @@ function* fetchCompounds() {
 
 }
 
+//retrieves a single compound based on id 
+function* fetchCompound(action) {
+
+    let getid = action.payload 
+
+    try {
+        //retrieves the compounds from the compounds table
+        const compound = yield axios.get(`/api/compounds/${getid}`)
+
+        
+    }
+
+    catch (error) {
+
+        console.log("error with fetchCompound")
+    }
+
+
+}
+
 //this addCompounds function will be called by the compoundsSaga function below
 //when dispatch with the type ADD_COMPOUNDS is called
  function* addCompounds(action) {
@@ -41,6 +61,7 @@ function* fetchCompounds() {
 //calls the delete function after a 
  function* deleteCompound(action) {
 
+
     let deleteid = action.payload
 
     try {
@@ -56,16 +77,41 @@ function* fetchCompounds() {
 
  }
 
+
+ function* editCompound(action) {
+
+    let editid = action.payload[0]
+    console.log(editid)
+    let newCompound = action.payload[1]
+
+    try {
+         yield axios.put(`/api/compounds/${editid}`)
+
+         //want to reupdate dom after a new element is added 
+         yield put({type: 'FETCH_COMPOUNDS'})
+     }
+
+     catch (error) {
+        console.log("error with edit Compounds")
+    }
+
+ }
+
 function* compoundsSaga() {
 
     
     //communicates with the dispatch in compopnent file
     yield takeLatest('FETCH_COMPOUNDS', fetchCompounds);
 
+    //retrieve a single compound based on id
+    yield takeLatest('FETCH_COMPOUND', fetchCompound);
+
     //this statement will couple ADD_COMPOUNDS with the addCompounds function
     yield takeLatest('ADD_COMPOUND', addCompounds);
 
     yield takeLatest('DELETE_COMPOUND', deleteCompound);
+
+    yield takeLatest('EDIT_COMPOUND', editCompound);
     
 }
 

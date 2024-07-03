@@ -34,7 +34,7 @@ router.get('/', (req, res) => {
  */
 router.get('/:id', (req, res) => {
 
-  //req.body returns the 
+  
   let newid = req.params.id
 
   const queryText = `
@@ -74,6 +74,7 @@ router.post('/', (req, res) => {
   //from req.body.name which is recived from request made from client/store
 
   const insertCompoundDetails = [
+    
     req.body.name,
     req.body.description,
     //req.body.user_id,
@@ -98,28 +99,29 @@ router.post('/', (req, res) => {
  * UPDATE compound in database
  * 
  * The way 
+ * 
+ * "date" = $3, 
+    "user_id" = $4, 
+    "image" = $5, 
  */
 router.put('/:id', (req, res) => {
 
-  //verify what having this statemnt will do
-  //return values that are stored in the server
+  let newid = req.params.id
   const updateCompounds = req.body;
 
 
-  const newCompoundQuery = `
+  const queryText = `
   UPDATE "compounds"  
     SET    
     "name" = $1,
     "description" = $2,  
-    "date" = $3, 
-    "user_id" = $4, 
-    "image" = $5, 
-    "quantity" = $6
+    
+    "quantity" = $3
 
     WHERE 
-    id = $8 ;
+    id = $4 ;
      
-  `;
+  `
 
   //update this statement so that the previous 
   //values that were stored in the server 
@@ -127,14 +129,15 @@ router.put('/:id', (req, res) => {
   const newCompoundValues = [
     updateCompounds.name,
     updateCompounds.description,
-    updateCompounds.date,
-    updateCompounds.user_id,
-    updateCompounds.image,
-    updateCompounds.quantity
+    //updateCompounds.date,
+    //updateCompounds.user_id,
+    //updateCompounds.image,
+    updateCompounds.quantity,
+    newid
 
   ]
 
-  pool.query(newCompoundQuery, newCompoundValues)
+  pool.query(queryText, newCompoundValues)
     .then((result) => { res.sendStatus(200); })
     .catch((err) => {
       console.log("put route not working")
@@ -150,7 +153,7 @@ router.delete('/:id', (req, res) => {
   let deleteloc = req.params.id
   //req user id 
 
-  
+
   const queryText = `
   DELETE FROM "compounds"
    WHERE id=$1;

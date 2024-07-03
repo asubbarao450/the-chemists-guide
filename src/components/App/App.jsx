@@ -14,8 +14,11 @@ import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
+//Need import statements to display component pages
 import AddCompoundPage from '../AddCompoundPage/AddCompoundPage';
 import CompoundList from '../CompoundList/CompoundList';
+import EditPage from '../EditPage/EditPage';
+
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
@@ -79,6 +82,15 @@ function App() {
             path="/compoundlist"
           >
             <CompoundList/>
+          </ProtectedRoute>
+
+
+          <ProtectedRoute
+            // shows editpage only when loggedin
+            exact
+            path="/editpage"
+          >
+            <EditPage/>
           </ProtectedRoute>
 
           <Route

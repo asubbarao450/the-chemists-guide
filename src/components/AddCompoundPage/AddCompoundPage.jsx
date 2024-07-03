@@ -20,8 +20,6 @@ function AddCompoundPage() {
     //communicates with the reducer listening for 'ADD_COMPOUND' 
     //with the payload newItem object 
     
-
-
     const newItem = {
         name: name,
         description: description,
