@@ -16,12 +16,12 @@ function CompoundList() {
 
 
 
-  function deletefunc(id) {
+  const deletefunc = (id) => {
 
 
     dispatch({
 
-      type: 'DELETE',
+      type: 'DELETE_COMPOUND',
       payload: id
 
     })
@@ -29,7 +29,7 @@ function CompoundList() {
   }
 
 
-  function editfunc(id){
+  const editfunc = (id) =>{
 
 
     dispatch({
@@ -47,7 +47,7 @@ function CompoundList() {
         <p>Hello</p>
 
         <div>
-          {compounds.length > 0 && compounds.map((compound) => <li key = {compound.id}>{compound.name} {compound.description} {compound.date} {compound.quantity}<button onClick={deletefunc(compound.id)}>Delete</button><button onClick={editfunc(compound.id)}>Edit</button></li>)}
+          {compounds.length > 0 && compounds.map((compound) => <li key = {compound.id}>{compound.name} {compound.description} {compound.date} {compound.quantity}<button onClick={()=>deletefunc(compound.id)}>Delete</button><button onClick={()=>editfunc(compound.id)}>Edit</button></li>)}
 
          
         </div>
