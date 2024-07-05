@@ -5,6 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 //useLocation allows data to be used with a history.push method
 import { useLocation, useHistory } from 'react-router-dom';
 
+import Button from '@mui/material/Button';
+
+import TextField from '@mui/material/TextField';
+
+import Table from '@mui/material/Table';
+
 
 function CompoundList() {
 
@@ -37,27 +43,31 @@ function CompoundList() {
   const editfunc = (id) => {
 
 
-    //pushes to editpage along with state which captures components id
+    //history.push will push to edit page along with 
+    //the id of the element that was clicked
     history.push({pathname: '/editpage',  state: id })
-    // dispatch({   , 
-
-    //   type: 'PUT',
-    //   payload: id
-
-    // })
+   
 
   }
 
 
   return (
     <div className="container">
-      <p>Hello</p>
+    
 
-      <div>
-        {compounds.length > 0 && compounds.map((compound) => <li key={compound.id}>{compound.name} {compound.description} {compound.date} {compound.quantity}<button onClick={() => deletefunc(compound.id)}>Delete</button><button onClick={() => editfunc(compound.id)}>Edit</button></li>)}
+      
+      <Table className = 'compoundList'>
+      <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Date</th>
+    <th>Quantity</th>
+    <th>Delete</th>
+    <th>Edit</th>
+  </tr>
+      {compounds.length > 0 && compounds.map((compound) => <tr key={compound.id}><td>{compound.name}</td> <td>{compound.description}</td> <td> {compound.date} </td><td align = "center" > {compound.quantity}</td> <td><Button variant="contained" style={{backgroundColor: "#FF0000"}} onClick={() => deletefunc(compound.id)}>Delete</Button></td><td><Button variant="contained" onClick={() => editfunc(compound.id)}>Edit</Button></td></tr>)}
 
-
-      </div>
+</Table>
 
 
     </div>

@@ -4,6 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { useLocation, useHistory } from 'react-router-dom';
 
+import Button from '@mui/material/Button';
+
+import TextField from '@mui/material/TextField';
+
+
+
 function EditPage() {
 
   //this statement accesses the compounds and directs to the specific reducer inside
@@ -11,6 +17,7 @@ function EditPage() {
 
   const dispatch = useDispatch();
   const history = useHistory();
+
 
   const location = useLocation();
 
@@ -34,6 +41,7 @@ function EditPage() {
     dispatch({ type: 'FETCH_COMPOUND' })
   }, [])
 
+  
 
   //function which handles the edit and 
   const submitedit = () => {
@@ -61,12 +69,15 @@ function EditPage() {
   return (
 
     <div>
-      <div>
-        {compounds.length > 0 && compounds.map((compound) => <li key={compound.id}>{compound.name} {compound.description} {compound.date} {compound.quantity}</li>)}
-      </div>
-
-
-
+      <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Date</th>
+    <th>Quantity</th>
+    <th>Delete</th>
+    <th>Edit</th>
+  </tr>
+      {compounds.length > 0 && compounds.map((compound) => <tr key={compound.id}><td>{compound.name}</td> <td>{compound.description}</td> <td> {compound.date} </td><td> {compound.quantity}</td> <td><button onClick={() => editfunc(compound.id)}>Edit</button></td></tr>)}
 
 
       <br></br>
@@ -104,7 +115,7 @@ function EditPage() {
               onChange={(event) => setQuantity1(event.target.value)}
             />
 
-            <button id='submitCompounds'>Submit Edited Entry</button>
+            <button variant="contained" style={{backgroundColor: "#228B22"}} id='submitCompounds'>Submit Edited Entry</button>
           </form>
 
         }
