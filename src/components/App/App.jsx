@@ -50,7 +50,7 @@ function App() {
             exact
             path="/about"
           >
-            <AddCompoundPage />
+            <AboutPage/>
           </Route>
 
 

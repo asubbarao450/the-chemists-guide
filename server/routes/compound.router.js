@@ -157,7 +157,6 @@ router.delete('/:id', (req, res) => {
 
   //req params id returns the id of the element we want deleted
   let deleteloc = req.params.id
-  //req user id 
 
 
   const queryText = `

@@ -1,6 +1,7 @@
 const userReducer = (state = {}, action) => {
   switch (action.type) {
     case 'SET_USER':
+      //this return statement will update the state to action.payload
       return action.payload;
     case 'UNSET_USER':
       return {};
@@ -8,6 +9,8 @@ const userReducer = (state = {}, action) => {
       return state;
   }
 };
+
+
 
 // user will be on the redux state at:
 // state.user

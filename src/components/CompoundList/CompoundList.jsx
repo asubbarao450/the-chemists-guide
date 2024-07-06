@@ -43,10 +43,16 @@ function CompoundList() {
   const editfunc = (id) => {
 
 
+    //communicates with the sagafunction which dispatches to the 
+    //the compound reducer
+    //the reducer will contain the compound which needs to be edited
+    dispatch({ type: 'FETCH_COMPOUND', payload: id })
+
     //history.push will push to edit page along with 
     //the id of the element that was clicked
     history.push({pathname: '/editpage',  state: id })
    
+    
 
   }
 

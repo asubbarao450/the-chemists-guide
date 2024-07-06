@@ -12,7 +12,10 @@ import TextField from '@mui/material/TextField';
 
 function EditPage() {
 
-  //this statement accesses the compounds and directs to the specific reducer inside
+  //will access the compoundReducer which contains the items  
+  //the user clicked to edit on the previous page
+  const compound = useSelector(store => store.compounds.compoundReducer);
+
 
 
   const dispatch = useDispatch();
@@ -31,17 +34,6 @@ function EditPage() {
   //will access the data passed from the history.push()
   //on previous page
   const editid = Number(location.state);
-
-  
-
-  const compounds = useSelector(store => store.compounds.compoundsReducer);
-
-  //dispatch contacts the root saga in compounds payload: editid
-  useEffect(() => {
-    dispatch({ type: 'FETCH_COMPOUND' })
-  }, [])
-
-  
 
   //function which handles the edit and 
   const submitedit = () => {
@@ -67,19 +59,21 @@ function EditPage() {
   }
 
 
-  //I just want the edited compound to be displayed on the dom
+  //will show the to be edited compound on the dom of the edit page 
   return (
 
+
     <div>
+      <h2>The compound which will be edited is: </h2>
       <tr>
     <th>Name</th>
     <th>Description</th>
     <th>Date</th>
     <th>Quantity</th>
-    <th>Delete</th>
-    <th>Edit</th>
+   
   </tr>
-      {compounds.length > 0 && compounds.map((compound) => <tr key={compound.id}><td>{compound.name}</td> <td>{compound.description}</td> <td> {compound.date} </td><td> {compound.quantity}</td> <td><button onClick={() => editfunc(compound.id)}>Edit</button></td></tr>)}
+  
+      {compound.length > 0 && compound.map((comp) => <tr key={comp.id}><td>{comp.name}</td> <td>{comp.description}</td> <td> {comp.date} </td><td> {comp.quantity}</td></tr>)}
 
 
       <br></br>

@@ -10,7 +10,7 @@ function* fetchCompounds() {
 
         
         //put communicates with the reducer after retrieving a server call
-        yield put({ type: 'SET_COMPOUND', payload: compounds.data})
+        yield put({ type: 'SET_COMPOUNDS', payload: compounds.data})
     }
 
     catch (error) {
@@ -30,6 +30,9 @@ function* fetchCompound(action) {
         //retrieves the compounds from the compounds table
         const compound = yield axios.get(`/api/compounds/${getid}`)
 
+        //you use compound.data not action.payload here because the 
+        //action.payload will only contain the id of the element we want to retrieve
+        yield put({ type: 'SET_COMPOUND', payload: compound.data})
         
     }
 
@@ -86,6 +89,7 @@ function* fetchCompound(action) {
     let newCompound = action.payload1
 
     try {
+        console.log("action.payload is: ", action.payload);
          yield axios.put(`/api/compounds/${editid}`, newCompound)
 
          //want to reupdate dom after a new element is added 
