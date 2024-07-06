@@ -62,6 +62,8 @@ function EditPage() {
     setDescription1('')
     setQuantity1(0)
 
+    history.push('/compoundlist')
+
   }
 
 
@@ -87,7 +89,7 @@ function EditPage() {
         {
           <form onSubmit={submitedit}>
 
-            <h2>Edit Compound Page. Please note that blank forms will be cleared</h2>
+            <h2>Edit Compound Page. Please fill in edits for compounds</h2>
 
             <label>Name: </label>
             <input

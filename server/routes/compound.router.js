@@ -1,5 +1,8 @@
 const express = require('express');
 const pool = require('../modules/pool');
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 const router = express.Router();
 
 /**
@@ -40,7 +43,6 @@ router.get('/:id', (req, res) => {
   const queryText = `
   SELECT * FROM "compounds" 
   WHERE "compounds"."id" = $1;
-    
   `
 
   pool.query(queryText, [newid])
@@ -124,9 +126,9 @@ router.put('/:id', (req, res) => {
      
   `
 
-  //update this statement so that the previous 
-  //values that were stored in the server 
-  //will be kept
+  //this statement creates an Array 
+  //with parameters from req.body and newid
+  //which will be sent in a pool request
   const newCompoundValues = [
     String(req.body.name),
     String(req.body.description),
@@ -138,7 +140,9 @@ router.put('/:id', (req, res) => {
 
   ]
 
-  console.log(newCompoundValues)
+  //console.log(newCompoundValues)
+
+  //sends over the new compound values
   pool.query(queryText, newCompoundValues)
     .then((result) => { res.sendStatus(200); })
     .catch((err) => {
