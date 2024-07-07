@@ -1,0 +1,26 @@
+.actualform {
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+
+.input {
+        border: 2px solid red;
+        border-radius: 4px;
+}
+
+#submitCompounds{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        
+      }
+
+
+#submitCompounds:hover {
+        background-color:  #008CBA;
+        color: white;
+ }
+

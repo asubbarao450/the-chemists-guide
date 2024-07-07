@@ -4,11 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { useLocation, useHistory } from 'react-router-dom';
 
+import './EditPage.css'
+
 import Button from '@mui/material/Button';
 
 import TextField from '@mui/material/TextField';
 
-
+import Table from '@mui/material/Table';
 
 function EditPage() {
 
@@ -59,12 +61,13 @@ function EditPage() {
   }
 
 
-  //will show the to be edited compound on the dom of the edit page 
+
   return (
 
 
     <div>
       <h2>The compound which will be edited is: </h2>
+      <Table>
       <tr>
     <th>Name</th>
     <th>Description</th>
@@ -75,6 +78,7 @@ function EditPage() {
   
       {compound.length > 0 && compound.map((comp) => <tr key={comp.id}><td>{comp.name}</td> <td>{comp.description}</td> <td> {comp.date} </td><td> {comp.quantity}</td></tr>)}
 
+</Table>
 
       <br></br>
       <br></br>

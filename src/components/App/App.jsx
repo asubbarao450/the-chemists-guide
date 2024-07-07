@@ -77,6 +77,15 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
+            // shows addcompound page only when loggedin
+            exact
+            path="/addcompound"
+            
+          >
+            <AddCompoundPage/>
+          </ProtectedRoute>
+
+          <ProtectedRoute
             // shows compoundlist only when loggedin
             exact
             path="/compoundlist"

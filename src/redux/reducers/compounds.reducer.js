@@ -8,7 +8,7 @@ const compoundsReducer = (state = {}, action) => {
     //the below return statement will update the state to action.payload
     //the state will contain all compounds from postgres database
         return action.payload
-      
+  
       default:
         return state;
     }
@@ -18,7 +18,6 @@ const compoundsReducer = (state = {}, action) => {
   const compoundReducer = (state = {}, action) => {
     switch (action.type) {
       case 'SET_COMPOUND':
-    
         return action.payload
       
       default:

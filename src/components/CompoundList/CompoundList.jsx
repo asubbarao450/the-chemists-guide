@@ -9,6 +9,8 @@ import Button from '@mui/material/Button';
 
 import TextField from '@mui/material/TextField';
 
+import './CompoundList.css'
+
 import Table from '@mui/material/Table';
 
 
@@ -20,6 +22,8 @@ function CompoundList() {
   const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
+
+  
 
   //dispatch contacts the root saga in compounds
   useEffect(() => {

@@ -2,10 +2,18 @@ import React, {useState} from 'react';
 
 import {useDispatch, useSelector} from 'react-redux';
 
+import Input from '@mui/material/Input'
+
+import Button from '@mui/material/Button'
+
+import Typography from '@mui/material/Typography';
+
+import './AddCompound.css'
+
+
 function AddCompoundPage() {
   
-  //access store which will store the 
-  //const compounds = useSelector((compounds) => store.compounds);
+  
 
   //react hooks to store the state of the name, description and mass variables 
   let [name, setName] = useState('');
@@ -42,38 +50,40 @@ function AddCompoundPage() {
 
   
   return (
-    <div>
+    <div className = "form">
      {
-      <form onSubmit = {handleSubmit}>
+      <form className = "actualform" onSubmit = {handleSubmit}>
       
       
       <label>Name: </label>
-      <input
+      <Input className ="input"
       type='text'
       name='name'
       value={name}
       onChange = {(event) => setName(event.target.value)}
       />
 
-      
+<br></br>
     <label>Description: </label>
-      <input
+      <Input className ="input"
       type='text'
       name='description'
       value={description}
       onChange = {(event) => setDescription(event.target.value)}
       />
 
-
+<br></br>
       <label>Quantity(amount): </label>
-      <input
+      <Input className ="input"
       type='text'
       name='quantity'
       value={quantity}
       onChange = {(event) => setQuantity(event.target.value)}
       />
       
-      <button id='submitCompounds'>Create Compound Entry</button>
+    <br></br>
+    <br></br>
+      <Button id="submitCompounds">Create Compound Entry</Button>
       </form>
 
      }

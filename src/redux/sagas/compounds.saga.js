@@ -62,7 +62,7 @@ function* fetchCompound(action) {
 
  }
 
-//calls the delete function after a 
+//calls the delete function after 
  function* deleteCompound(action) {
 
 
@@ -81,11 +81,11 @@ function* fetchCompound(action) {
 
  }
 
-
+//function that edits a compound which will 
  function* editCompound(action) {
 
     let editid = action.payload
-    console.log(editid)
+    
     let newCompound = action.payload1
 
     try {
@@ -102,6 +102,7 @@ function* fetchCompound(action) {
 
  }
 
+ //saga function which communicates directly with the dispatch on the front-end
 function* compoundsSaga() {
 
     
