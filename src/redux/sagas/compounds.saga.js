@@ -22,6 +22,7 @@ function* fetchCompounds() {
 }
 
 //retrieves a single compound based on id 
+//used for edit page
 function* fetchCompound(action) {
 
     let getid = action.payload 
@@ -46,6 +47,8 @@ function* fetchCompound(action) {
 
 //this addCompounds function will be called by the compoundsSaga function below
 //when dispatch with the type ADD_COMPOUNDS is called
+
+//addCompounds adds a new compound to the database
  function* addCompounds(action) {
 
     try {
@@ -62,7 +65,7 @@ function* fetchCompound(action) {
 
  }
 
-//calls the delete function after 
+//deletes a single compound in database via a deleteid
  function* deleteCompound(action) {
 
 
@@ -81,11 +84,13 @@ function* fetchCompound(action) {
 
  }
 
-//function that edits a compound which will 
+//will edit a single compound by id
  function* editCompound(action) {
 
+    //specifies which compound we want to edit
     let editid = action.payload
     
+    //specfies what the item we want to replace with is
     let newCompound = action.payload1
 
     try {

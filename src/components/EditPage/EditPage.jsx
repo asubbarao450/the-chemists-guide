@@ -6,9 +6,13 @@ import { useLocation, useHistory } from 'react-router-dom';
 
 import './EditPage.css'
 
-import Button from '@mui/material/Button';
+import Input from '@mui/material/Input'
 
-import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button'
+
+import Typography from '@mui/material/Typography';
+
+import Box from '@mui/material/Box';
 
 import Table from '@mui/material/Table';
 
@@ -85,12 +89,13 @@ function EditPage() {
 
       <div>
         {
-          <form onSubmit={submitedit}>
+          <Box className = "actualform" component="form" onSubmit={submitedit}>
+         
 
             <h2>Edit Compound Page. Please fill in edits for compounds</h2>
 
             <label>Name: </label>
-            <input
+            <Input
               type='text'
               name='name'
               value={name}
@@ -99,7 +104,7 @@ function EditPage() {
 
 
             <label>Description: </label>
-            <input
+            <Input
               type='text'
               name='description'
               value={description}
@@ -108,15 +113,15 @@ function EditPage() {
 
 
             <label>Quantity(amount): </label>
-            <input
+            <Input
               type='text'
               name='quantity'
               value={quantity}
               onChange={(event) => setQuantity1(event.target.value)}
             />
 
-            <button variant="contained" style={{backgroundColor: "#228B22"}} id='submitCompounds'>Submit Edited Entry</button>
-          </form>
+            <Button  type = "submit" id="submitCompounds">Submit Edited Entry</Button>
+            </Box>
 
         }
 

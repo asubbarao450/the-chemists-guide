@@ -20,6 +20,10 @@
 
 
 #submitCompounds:hover {
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background-color:  #008CBA;
         color: white;
  }

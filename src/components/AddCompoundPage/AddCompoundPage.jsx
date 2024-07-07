@@ -8,6 +8,8 @@ import Button from '@mui/material/Button'
 
 import Typography from '@mui/material/Typography';
 
+import Box from '@mui/material/Box';
+
 import './AddCompound.css'
 
 
@@ -50,11 +52,9 @@ function AddCompoundPage() {
 
   
   return (
-    <div className = "form">
-     {
-      <form className = "actualform" onSubmit = {handleSubmit}>
+    
       
-      
+      <Box className = "actualform" component="form" onSubmit={handleSubmit}>
       <label>Name: </label>
       <Input className ="input"
       type='text'
@@ -83,12 +83,12 @@ function AddCompoundPage() {
       
     <br></br>
     <br></br>
-      <Button id="submitCompounds">Create Compound Entry</Button>
-      </form>
-
-     }
+      <Button type = "submit" id="submitCompounds">Create Compound Entry</Button>
       
-    </div>
+      </Box>
+     
+      
+    
 
   );
 }

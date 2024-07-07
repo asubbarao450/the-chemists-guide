@@ -1,4 +1,32 @@
-td, tr {
-        text-align:center; 
+
+
+
+.actualform {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+
+
+#submitCompounds{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:  #1876d2;
+
+    font-size: 14px;
+    color: white;
+    
+  }
+
+
+#submitCompounds:hover {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:  #12df61;
+    color: white;
+}
