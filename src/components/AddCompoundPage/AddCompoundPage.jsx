@@ -25,10 +25,12 @@ function AddCompoundPage() {
   //added decleration of dispatch
   const dispatch = useDispatch();
 
+
+     //communicates with the saga listening for 'ADD_COMPOUND' 
+    //with the payload newItem object 
    let handleSubmit = () => {
     event.preventDefault
-    //communicates with the reducer listening for 'ADD_COMPOUND' 
-    //with the payload newItem object 
+ 
     
     const newItem = {
         name: name,
@@ -37,7 +39,7 @@ function AddCompoundPage() {
 
     }
 
-   //console.log("IMPORTANT", newItem.name)
+  
 
     //this dispatch sends the user input over to saga 
     //function/store reducer
@@ -73,7 +75,7 @@ function AddCompoundPage() {
       />
 
 <br></br>
-      <label>Quantity(amount): </label>
+      <label>Quantity(mg): </label>
       <Input className ="input"
       type='text'
       name='quantity'

@@ -112,8 +112,7 @@ router.put('/:id', (req, res) => {
 
   let newid  = req.params.id
   //const {updateCompounds} = req.body
-  console.log("req.params.id is: ", newid);
-  console.log("req.body.name is: ", req.body.name)
+
 
   const queryText = `
   UPDATE "compounds"  

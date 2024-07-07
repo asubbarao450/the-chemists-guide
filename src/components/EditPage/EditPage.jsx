@@ -41,7 +41,7 @@ function EditPage() {
   //on previous page
   const editid = Number(location.state);
 
-  //function which handles the edit and 
+  //function which handles the edit by creating a object which needs to be edited
   const submitedit = () => {
 
     let edittosend = {
@@ -76,7 +76,7 @@ function EditPage() {
     <th>Name</th>
     <th>Description</th>
     <th>Date</th>
-    <th>Quantity</th>
+    <th>Quantity(mg)</th>
    
   </tr>
   
@@ -87,12 +87,10 @@ function EditPage() {
       <br></br>
       <br></br>
 
+      <h2>Edit Compound Page. Please fill in edits for compounds</h2>
       <div>
         {
           <Box className = "actualform" component="form" onSubmit={submitedit}>
-         
-
-            <h2>Edit Compound Page. Please fill in edits for compounds</h2>
 
             <label>Name: </label>
             <Input
@@ -112,7 +110,7 @@ function EditPage() {
             />
 
 
-            <label>Quantity(amount): </label>
+            <label>Quantity(mg): </label>
             <Input
               type='text'
               name='quantity'
@@ -120,7 +118,7 @@ function EditPage() {
               onChange={(event) => setQuantity1(event.target.value)}
             />
 
-            <Button  type = "submit" id="submitCompounds">Submit Edited Entry</Button>
+            <Button  type ="submit" id="submitCompounds">Submit Edited Entry</Button>
             </Box>
 
         }
