@@ -80,7 +80,7 @@ function EditPage() {
    
   </tr>
   
-      {compound.length > 0 && compound.map((comp) => <tr key={comp.id}><td>{comp.name}</td> <td>{comp.description}</td> <td> {comp.date} </td><td> {comp.quantity}</td></tr>)}
+      {compound.length > 0 && compound.map((comp) => <tr key={comp.id}><td>{comp.name}</td> <td>{comp.description}</td> <td> {new Date(comp.date).toLocaleTimeString('en-US')} </td><td> {comp.quantity}</td></tr>)}
 
 </Table>
 

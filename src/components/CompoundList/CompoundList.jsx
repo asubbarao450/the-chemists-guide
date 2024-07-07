@@ -14,6 +14,8 @@ import './CompoundList.css'
 import Table from '@mui/material/Table';
 
 
+
+
 function CompoundList() {
 
   //this statement accesses the compounds and directs to the specific reducer inside
@@ -75,7 +77,7 @@ function CompoundList() {
     <th>Delete</th>
     <th>Edit</th>
   </tr>
-      {compounds.length > 0 && compounds.map((compound) => <tr key={compound.id}><td>{compound.name}</td> <td>{compound.description}</td> <td> {compound.date} </td><td align = "center" > {compound.quantity}</td> <td><Button variant="contained" style={{backgroundColor: "#FF0000"}} onClick={() => deletefunc(compound.id)}>Delete</Button></td><td><Button variant="contained" onClick={() => editfunc(compound.id)}>Edit</Button></td></tr>)}
+      {compounds.length > 0 && compounds.map((compound) => <tr key={compound.id}><td>{compound.name}</td> <td>{compound.description}</td> <td> {new Date(compound.date).toLocaleTimeString('en-US')} </td><td align = "center" > {compound.quantity}</td> <td><Button variant="contained" style={{backgroundColor: "#FF0000"}} onClick={() => deletefunc(compound.id)}>Delete</Button></td><td><Button variant="contained" onClick={() => editfunc(compound.id)}>Edit</Button></td></tr>)}
 
 </Table>
 

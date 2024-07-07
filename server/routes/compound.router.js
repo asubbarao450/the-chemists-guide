@@ -6,7 +6,7 @@ const {
 
 
 const router = express.Router();
-
+var d = new Date();
 /**
  * GETS All the compounds from the database with all parameters
  */
@@ -74,6 +74,7 @@ router.post('/', (req, res) => {
     ($1, $2, 'NOW()', $3);
   `
 
+  
   //creates an object with the properties 
   //from req.body.name which is recived from request made from client/store
 
