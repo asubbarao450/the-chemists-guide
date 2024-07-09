@@ -73,7 +73,7 @@ function CompoundList() {
     <th>Name</th>
     <th>Description</th>
     <th>Date</th>
-    <th>Quantity</th>
+    <th>Quantity(mg)</th>
     <th>Delete</th>
     <th>Edit</th>
   </tr>
