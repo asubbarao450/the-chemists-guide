@@ -16,7 +16,7 @@ function LandingPage() {
   return (
     <div className="container">
       <h2>{heading}</h2>
-
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitqzNRqp9aK_hu8qLJuDdgLMLJxhsa_4JMuRVqu_JwWUdNnxHKc9PR9OHwFj1S4BwGVCWfro54GqCYt4ehnIiUnAk8bdFrusaWdpA7LO06wgxaN98kU7db_7vzg2LGa0ggoz37C_sEvfqJ/s1600/Periodic+Table+Header+Updated.png" width="450" height="450"/>
       <div className="grid">
         <div className="grid-col grid-col_8">
           <h6>
