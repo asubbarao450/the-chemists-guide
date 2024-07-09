@@ -5,6 +5,8 @@
         justify-content: center;
 }
 
+
+
 .input {
         border: 2px solid rgb(9, 111, 243);
         border-radius: 4px;
@@ -15,6 +17,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-left: 50px;
 
       }
 
@@ -28,3 +31,40 @@
         color: white;
  }
 
+h3{
+      
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+}
+
+
+#description1{
+
+margin-left: 50px;
+
+
+}
+
+#description2{
+        
+ margin-right: 90px;
+
+}
+
+
+#quantity1{
+
+        margin-left: 25px;
+        
+        
+}
+
+#quantity2{
+
+margin-right: -1px;
+                
+                
+}

@@ -55,10 +55,14 @@ function AddCompoundPage() {
   
   return (
     
-      
+    
+    <div>
+       <h2>Welcome to the Add Compound Page!  </h2>
+       <h3>Please enter compound details below: </h3>
       <Box className = "actualform" component="form" onSubmit={handleSubmit}>
-      <label>Name: </label>
-      <Input className ="input"
+       
+      <label id="name1">Name: </label>
+      <Input id="name2" className = "input"
       type='text'
       name='name'
       value={name}
@@ -66,8 +70,8 @@ function AddCompoundPage() {
       />
 
 <br></br>
-    <label>Description: </label>
-      <Input className ="input"
+    <label id="description1">Description: </label>
+      <Input id="description2" className ="input"
       type='text'
       name='description'
       value={description}
@@ -75,8 +79,8 @@ function AddCompoundPage() {
       />
 
 <br></br>
-      <label>Quantity(mg): </label>
-      <Input className ="input"
+      <label id="quantity1">Quantity(mg): </label>
+      <Input id="quantity2" className ="input"
       type='text'
       name='quantity'
       value={quantity}
@@ -90,7 +94,7 @@ function AddCompoundPage() {
       </Box>
      
       
-    
+      </div>
 
   );
 }
