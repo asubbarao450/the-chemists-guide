@@ -15,6 +15,7 @@ const compoundsReducer = (state = {}, action) => {
   };
   
 
+  //compound reducer gets all details of a compound
   const compoundReducer = (state = {}, action) => {
     switch (action.type) {
       case 'SET_COMPOUND':

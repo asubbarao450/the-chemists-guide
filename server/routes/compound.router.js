@@ -6,7 +6,7 @@ const {
 
 
 const router = express.Router();
-var d = new Date();
+
 /**
  * GETS All the compounds from the database with all parameters
  */
@@ -69,9 +69,9 @@ router.post('/', (req, res) => {
   const insertCompoundQuery = `
   INSERT INTO "compounds"  
   
-      ("name", "description", "date", "quantity")
+      ("name", "description", "date", "quantity", "state")
       VALUES
-    ($1, $2, 'NOW()', $3);
+    ($1, $2, 'NOW()', $3, $4);
   `
 
   
@@ -84,7 +84,8 @@ router.post('/', (req, res) => {
     req.body.description,
     //req.body.user_id,
     //req.body.image,
-    req.body.quantity
+    req.body.quantity,
+    req.body.state
 
   ]
 
@@ -103,28 +104,31 @@ router.post('/', (req, res) => {
 /**
  * UPDATE compound in database
  * 
- * The way 
- * 
- * "date" = $3, 
-    "user_id" = $4, 
-    "image" = $5, 
+ * Takes in a id and updates compounds based on what is 
+ * contained in req.body
  */
 router.put('/:id', (req, res) => {
 
   let newid  = req.params.id
-  //const {updateCompounds} = req.body
+  
 
 
+  //this line of code is sent to postgres which is 
+  //designed to update a compound with a given id
+  //the $ syntax is used to prevent malicious code
+  //be very careful with commas
   const queryText = `
   UPDATE "compounds"  
     SET    
     "name" = $1,
     "description" = $2,  
     
-    "quantity" = $3
+    "quantity" = $3,
+
+    "state" = $4
 
     WHERE 
-    id = $4 ;
+    id = $5 ;
      
   `
 
@@ -138,6 +142,7 @@ router.put('/:id', (req, res) => {
     //updateCompounds.user_id,
     //updateCompounds.image,
     Number(req.body.quantity),
+    String(req.body.state),
     newid
 
   ]

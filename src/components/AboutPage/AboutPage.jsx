@@ -9,9 +9,11 @@ function AboutPage() {
   return (
     <div className="container">
       <div>
-        <h5>Welcome to the Chemist's Guide. The app is dedicated to recordkeeping and acting as a quick reference guide. The app allows access to a 
-          set of 20 commonly referenced elements to help guide lab chemists. The app also features different pages and allows users to create edit and delete compound information. 
-          The information a user can save about a compound is limited to name, description, date, image and quantity.</h5>
+        <h3>Welcome to the Chemist's Guide. The app is dedicated to recordkeeping and acting as a quick reference guide. The app allows access to a 
+          periodic table for refrencing molar mass, element name, etc. The app also features different pages and allows users to add, edit and delete compound information. 
+          The information a user can save about a compound consists of name, description, date and quantity.</h3>
+<br></br>
+          <h3>Technologies used: Redux Saga, React, Material UI, Postgres(database), Node.js, Express</h3>
       </div>
     </div>
   );

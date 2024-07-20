@@ -8,6 +8,10 @@ import Button from '@mui/material/Button'
 
 import Typography from '@mui/material/Typography';
 
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+
 import Box from '@mui/material/Box';
 
 import './AddCompound.css'
@@ -21,6 +25,7 @@ function AddCompoundPage() {
   let [name, setName] = useState('');
   let [description, setDescription] = useState('');
   let [quantity, setQuantity] = useState(0);
+  let [state, setState] = useState('');
 
   //added decleration of dispatch
   const dispatch = useDispatch();
@@ -35,7 +40,8 @@ function AddCompoundPage() {
     const newItem = {
         name: name,
         description: description,
-        quantity: quantity
+        quantity: quantity,
+        state: state
 
     }
 
@@ -48,11 +54,13 @@ function AddCompoundPage() {
     setName('')
     setDescription('')
     setQuantity(0)
+    setState('')
   }
 
   
 
-  
+  //there are 4 different inputs defined below along with labels and input type
+  //the 4 different inputs are for name, description, state and quantity 
   return (
     
     
@@ -61,7 +69,7 @@ function AddCompoundPage() {
        <h3>Please enter compound details below: </h3>
       <Box className = "actualform" component="form" onSubmit={handleSubmit}>
        
-      <label id="name1">Name: </label>
+      <InputLabel id="name1">Name: </InputLabel>
       <Input id="name2" className = "input"
       type='text'
       name='name'
@@ -70,7 +78,7 @@ function AddCompoundPage() {
       />
 
 <br></br>
-    <label id="description1">Description: </label>
+    <InputLabel id="description1">Description: </InputLabel>
       <Input id="description2" className ="input"
       type='text'
       name='description'
@@ -79,15 +87,34 @@ function AddCompoundPage() {
       />
 
 <br></br>
-      <label id="quantity1">Quantity(mg): </label>
+      <InputLabel id="quantity1">Quantity(mg):</InputLabel>
       <Input id="quantity2" className ="input"
       type='text'
       name='quantity'
       value={quantity}
       onChange = {(event) => setQuantity(event.target.value)}
       />
+
+      
       
     <br></br>
+
+
+  
+    <InputLabel id="state1">Select State</InputLabel>
+  <Select
+   
+    id='state'
+    value={state}
+    label='State'
+    onChange={(event) => setState(event.target.value)}
+  >
+    <MenuItem value={"Solid"}>Solid</MenuItem>
+    <MenuItem value={"Liquid"}>Liquid</MenuItem>
+    <MenuItem value={"Gas"}>Gas</MenuItem>
+    <MenuItem value={"Plasma"}>Plasma</MenuItem>
+    
+  </Select>
     <br></br>
       <Button type = "submit" id="submitCompounds">Create Compound Entry</Button>
       

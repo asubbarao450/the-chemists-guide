@@ -63,6 +63,9 @@ function CompoundList() {
   }
 
 
+  //return statement will return the compounds that were stored in database along with formatting
+  //The result will be in order of name, description, date, quantity, state and delete/edit buttons
+  
   return (
     <div className="container">
     
@@ -74,10 +77,11 @@ function CompoundList() {
     <th>Description</th>
     <th>Date</th>
     <th>Quantity(mg)</th>
+    <th>State</th>
     <th>Delete</th>
     <th>Edit</th>
   </tr>
-      {compounds.length > 0 && compounds.map((compound) => <tr key={compound.id}><td>{compound.name}</td> <td>{compound.description}</td> <td> {new Date(compound.date).toLocaleTimeString('en-US')} </td><td align = "center" > {compound.quantity}</td> <td><Button variant="contained" style={{backgroundColor: "#FF0000"}} onClick={() => deletefunc(compound.id)}>Delete</Button></td><td><Button variant="contained" onClick={() => editfunc(compound.id)}>Edit</Button></td></tr>)}
+      {compounds.length > 0 && compounds.map((compound) => <tr key={compound.id}><td>{compound.name}</td> <td>{compound.description}</td> <td> {new Date(compound.date).toLocaleTimeString('en-US')} </td><td align = "center" > {compound.quantity}</td> <td align = "center" > {compound.state}</td><td><Button variant="contained" style={{backgroundColor: "#FF0000"}} onClick={() => deletefunc(compound.id)}>Delete</Button></td><td><Button variant="contained" onClick={() => editfunc(compound.id)}>Edit</Button></td></tr>)}
 
 </Table>
 

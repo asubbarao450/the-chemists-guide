@@ -24,6 +24,7 @@ CREATE TABLE "compound" (
     "description" VARCHAR (1000),
     "date" TIMESTAMP NOT NULL,
     "user_id" integer,
+    "state" VARCHAR(8),
     "image" varchar (1900) UNIQUE,
     "quantity" float
 );
